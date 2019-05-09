@@ -64,13 +64,13 @@ spec:
         command: ["sh", "-c", "ulimit -n 65536"]
         securityContext:
           privileged: true
-          #volumeClaimTemplates:
-          #- metadata:
-          #name: data
-          #labels:
-          #app: elasticsearch
-          #spec:
-          #accessModes: [ "ReadWriteOnce" ]
-          #resources:
-          #requests:
-          #storage: 1Gi
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+      labels:
+        app: elasticsearch
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
